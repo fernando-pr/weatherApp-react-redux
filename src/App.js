@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <WeatherLocation />
+      <WeatherLocation city="Sanlucar de Barrameda, ES"/>
     </div>
     
   );
