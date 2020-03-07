@@ -3,12 +3,7 @@ import WeatherExtraInfo from './WeatherExtraInfo';
 import WeatherTemperature from '../WeatherTemperature';
 import PropTypes from 'prop-types';
 import {
-    CLOUD,
-    CLOUDY,
     SUN,
-    RAIN,
-    SNOW,
-    WINDY,
 } from './../../../constants/weathers';
 
 

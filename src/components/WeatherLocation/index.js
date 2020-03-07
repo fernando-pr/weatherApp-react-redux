@@ -5,16 +5,7 @@ import WeatherData from './WeatherData';
 import transformWeather from './../../services/transformWeather';
 import PropTypes from 'prop-types';
 import getUrlWeatherByCity from './../../services/getUrlWeatherByCity';
-import convert from 'convert-units';
 import './styles.css';
-import {
-    CLOUD,
-    CLOUDY,
-    SUN,
-    RAIN,
-    SNOW,
-    WINDY,
-} from './../../constants/weathers';
 
 class WeatherLocation extends Component{
    
