@@ -34,7 +34,6 @@ const transformWeather = weather_data => {
     const { humidity, temp } = weather_data.main;
     const { speed } = weather_data.wind;
     const weatherState = getWeatherState(weather_data.weather[0]);
-    const city = weather_data.name;
     const temperature = getTemp(temp);
     
     const data = {
@@ -44,11 +43,7 @@ const transformWeather = weather_data => {
         wind: `${speed} m/s`,
     }
 
-    const state = {
-        city,
-        data,
-    }
-    return state;
+    return data;
 }
 
 export default transformWeather;
