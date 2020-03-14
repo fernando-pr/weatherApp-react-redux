@@ -18,7 +18,6 @@ class WeatherLocation extends Component {
 	}
 
 	componentWillMount(){
-		const { city } = this.state;
         const api_weather = getUrlWeatherByCity(this.state.city);
 		fetch(api_weather).then( data => {
 			return data.json();
