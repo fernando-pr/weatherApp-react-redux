@@ -25,7 +25,8 @@ const getWeatherIcon = weatherState => {
     const icon = icons[weatherState];
     const sizeIcon = '4x';
     if (icons){
-        return <WeatherIcons className="wicon" name={icon} size={sizeIcon} />
+        const i = icon ? icon : '';
+        return <WeatherIcons className="wicon" name={i} size={sizeIcon} />
     } else {
         return <WeatherIcons className="wicon" name={"day-sunny"} size={sizeIcon} />
     }
@@ -45,8 +46,8 @@ const WeatherTemperature = ({temperature, weatherState}) => (
 
 WeatherTemperature.propTypes = {
 
-    temperature: PropTypes.number.isRequired,
-    weatherState: PropTypes.string.isRequired,
+    temperature: PropTypes.number,
+    weatherState: PropTypes.string,
 };
 
 export default WeatherTemperature;

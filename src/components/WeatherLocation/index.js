@@ -1,48 +1,28 @@
-import React, {Component} from 'react';
+import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Location from './Location';
 import WeatherData from './WeatherData';
-import transformWeather from './../../services/transformWeather';
 import PropTypes from 'prop-types';
-import getUrlWeatherByCity from './../../services/getUrlWeatherByCity';
 import './styles.css';
 
-class WeatherLocation extends Component {
+const WeatherLocation = ({ onWeatherLocationClick, city, data }) => (
 
-	constructor({ city }){
-		super();
-		this.state = {
-			city,
-			data: null
-		};
-	}
-
-	componentWillMount(){
-        const api_weather = getUrlWeatherByCity(this.state.city);
-		fetch(api_weather).then( data => {
-			return data.json();
-		}).then( weather_data => {
-			const data = transformWeather(weather_data);
-			this.setState({ data });
-		});
-	}
-
-	render = () => {
-		const { onWeatherLocationClick } = this.props;
-		const { city, data } = this.state;
-		return (
-			<div className='weatherLocationCont' onClick={onWeatherLocationClick} >
-				<Location city={city} />
-				{data ? <WeatherData data={data} /> : 
-				<CircularProgress size={60} thickness={7} />}
-			</div>);
-	};
-
-}
+	<div className='weatherLocationCont' onClick={onWeatherLocationClick} >
+		<Location city={city} />
+		{data ? <WeatherData data={data} /> : 
+		<CircularProgress size={60} thickness={7} />}
+	</div>
+);
 
 WeatherLocation.propTypes = {
 	city: PropTypes.string,
 	onWeatherLocationClick: PropTypes.func,
+	data: PropTypes.shape({
+        temperature: PropTypes.number,
+        weatherState: PropTypes.string,
+        humidity: PropTypes.number,
+        wind: PropTypes.string,
+     }),
 };
 
 export default WeatherLocation;
